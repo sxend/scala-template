@@ -1,0 +1,17 @@
+machine:
+  java:
+    version: oraclejdk8
+dependencies:
+  override:
+    - mkdir -p ~/.bintray && envsubst < .credentials > ~/.bintray/.credentials
+    - sbt clean "test:compile"
+  cache_directories:
+    - "~/.sbt"
+test:
+  override:
+    - sbt test
+deployment:
+  staging:
+    branch: master
+    commands:
+      - sbt "set version := \"0.0.1-b${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}\"" package publish
