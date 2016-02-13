@@ -2,6 +2,9 @@ machine:
   java:
     version: oraclejdk8
 dependencies:
+  pre:
+    - sudo apt-get update
+    - sudo apt-get -y install pandoc
   override:
     - mkdir -p ~/.bintray && envsubst < .credentials > ~/.bintray/.credentials
     - sbt clean "test:compile"
@@ -12,7 +15,7 @@ test:
     - sbt test
 general:
   artifacts:
-    - "target/test-reports"
+    - "target/specs2-reports"
 deployment:
   staging:
     branch: master
