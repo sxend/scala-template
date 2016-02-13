@@ -24,6 +24,7 @@ libraryDependencies ++= Seq(
   "com.typesafe.akka" %% "akka-http-spray-json-experimental" % "2.0.3",
   "com.chuusai" %% "shapeless" % "2.2.5",
   "org.specs2" %% "specs2-html" % "3.7" % "test",
+  "org.specs2" %% "specs2-junit" % "3.7" % "test",
   "org.specs2" %% "specs2-core" % "3.7" % "test"
 )
 
@@ -43,4 +44,4 @@ scalacOptions ++= Seq(
   "-language:postfixOps"
 )
 
-testOptions in Test += Tests.Argument("html")
+testOptions in Test += Tests.Argument("junitxml", "html", "console")
