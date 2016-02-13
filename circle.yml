@@ -10,6 +10,9 @@ dependencies:
 test:
   override:
     - sbt test
+general:
+  artifacts:
+    - "target/test-reports"
 deployment:
   staging:
     branch: master
