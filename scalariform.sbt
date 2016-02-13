@@ -4,4 +4,4 @@ import scalariform.formatter.preferences._
 ScalariformKeys.preferences := ScalariformKeys.preferences.value
   .setPreference(AlignSingleLineCaseStatements, true)
   .setPreference(DoubleIndentClassDeclaration, true)
-  .setPreference(PreserveDanglingCloseParenthesis, true)
+  .setPreference(DanglingCloseParenthesis, Preserve)
