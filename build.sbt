@@ -10,9 +10,9 @@ scalaVersion := "2.11.7"
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),
   Resolver.sonatypeRepo("snapshots"),
-  "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/",
-  "sxend repo releases" at "http://dl.bintray.com/sxend/releases",
-  "sxend repo snapshots" at "http://dl.bintray.com/sxend/snapshots"
+  Resolver.bintrayRepo("sxend", "releases"),
+  Resolver.bintrayRepo("sxend", "snapshots"),
+  "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/"
 )
 
 libraryDependencies ++= {
