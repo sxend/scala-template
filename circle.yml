@@ -9,7 +9,7 @@ dependencies:
     - echo -e '#!/bin/bash\nSBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"\njava $SBT_OPTS -jar `dirname $0`/sbt-launch.jar "$@"' > ~/bin/sbt && chmod u+x ~/bin/sbt
   override:
     - mkdir -p ~/.bintray && envsubst < .credentials > ~/.bintray/.credentials
-    - sbt clean "test:compile" package assembly
+    - sbt clean "test:compile"
   cache_directories:
     - "~/.sbt"
 test:
