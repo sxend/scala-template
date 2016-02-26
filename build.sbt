@@ -47,3 +47,6 @@ scalacOptions ++= Seq(
 )
 
 testOptions in Test += Tests.Argument("junitxml", "html", "console")
+
+assemblyJarName in assembly := "scala-template.jar"
+mainClass in assembly := Some("arimitsu.sf.template.Bootstrap")
