@@ -33,7 +33,7 @@ libraryDependencies ++= {
 publishMavenStyle := false
 
 bintrayRepository := {
-  if (version.value.matches("^[0-9]\\.[0-9]*\\.[0-9]*$")) "releases" else "snapshots"
+  if (version.value.matches("^[0-9]+\\.[0-9]+\\.[0-9]+$")) "releases" else "snapshots"
 }
 
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
