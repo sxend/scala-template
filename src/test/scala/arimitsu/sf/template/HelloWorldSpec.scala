@@ -7,13 +7,21 @@ class HelloWorldSpec extends Specification {
   "HelloWorld" should {
     "#run" in {
       "print message" in {
-        new HelloWorld {
-          override def print(message: String): Unit = {
-            message must_== "Hello, World."
-          }
-        }.run()
+        val helloworld = new HelloWorld with MockOutPut {
+        }
+        helloworld.run()
+        helloworld.message must_== "Hello, World."
         done
       }
     }
   }
+
+  trait MockOutPut extends Output {
+    var message = ""
+
+    override def print(message: String): Unit = {
+      this.message = message
+    }
+  }
+
 }
