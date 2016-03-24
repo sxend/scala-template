@@ -12,3 +12,4 @@ hs_err*.log
 node_modules/
 dist/
 .ensime
+.ensime_cache/
