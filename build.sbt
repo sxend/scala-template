@@ -66,6 +66,8 @@ javacOptions ++= Seq("-source", "1.8")
 
 scalacOptions ++= Seq(
   "-feature",
+  "-deprecation",
+  "-unchecked",
   "-language:reflectiveCalls",
   "-language:postfixOps"
 )
