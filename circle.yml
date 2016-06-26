@@ -7,6 +7,9 @@ dependencies:
     - pandoc -v
     - wget -O ~/bin/sbt-launch.jar https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.11/sbt-launch.jar
     - echo -e '#!/bin/bash\nSBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"\njava $SBT_OPTS -jar `dirname $0`/sbt-launch.jar "$@"' > ~/bin/sbt && chmod u+x ~/bin/sbt
+    - ~/bin/sbt sbt-version
+    - sbt sbt-version
+    - which sbt
   override:
     - mkdir -p ~/.bintray && envsubst < .credentials > ~/.bintray/.credentials
     - sbt clean "test:compile"
