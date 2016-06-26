@@ -17,7 +17,9 @@ test:
     - sbt test
 general:
   artifacts:
-    - "target"
+    - "target/specs2-reports"
+    - "target/ScalaTest-reports"
+    - "target/test-reports"
 deployment:
   staging:
     branch: master
