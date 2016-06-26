@@ -70,6 +70,11 @@ scalacOptions ++= Seq(
   "-language:postfixOps"
 )
 
+assemblyMergeStrategy in assembly := {
+  case PathList(ps @ _*) if ps.last endsWith "bnd.bnd" => MergeStrategy.first
+  case x => (assemblyMergeStrategy in assembly).value(x)
+}
+
 testOptions in Test += Tests.Argument(TestFrameworks.Specs2, "junitxml", "html", "console")
 
 testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/ScalaTest-reports/html")
