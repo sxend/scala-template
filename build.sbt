@@ -19,6 +19,7 @@ libraryDependencies ++= {
   val akkaVersion = "2.4.7"
   val shapelessVersion = "2.3.1"
   val spec2Version = "3.8.4"
+  val scalaTestVersion = "2.2.6"
   Seq(
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-agent" % akkaVersion,
@@ -48,6 +49,7 @@ libraryDependencies ++= {
     "com.typesafe.akka" %% "akka-persistence-query-experimental" % akkaVersion,
     "com.typesafe.akka" %% "akka-typed-experimental" % akkaVersion,
     "com.chuusai" %% "shapeless" % shapelessVersion,
+    "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
     "org.specs2" %% "specs2-html" % spec2Version % "test",
     "org.specs2" %% "specs2-junit" % spec2Version % "test",
     "org.specs2" %% "specs2-core" % spec2Version % "test"
