@@ -50,7 +50,6 @@ libraryDependencies ++= {
     "com.typesafe.akka" %% "akka-persistence-query-experimental" % akkaVersion,
     "com.typesafe.akka" %% "akka-typed-experimental" % akkaVersion,
     "com.chuusai" %% "shapeless" % shapelessVersion,
-    "org.scalatest" %% "scalatest" % scalaTestVersion % "test",
     "org.specs2" %% "specs2-html" % spec2Version % "test",
     "org.specs2" %% "specs2-junit" % spec2Version % "test",
     "org.specs2" %% "specs2-core" % spec2Version % "test"
@@ -81,10 +80,6 @@ assemblyMergeStrategy in assembly := {
 }
 
 testOptions in Test += Tests.Argument(TestFrameworks.Specs2, "junitxml", "html", "console")
-
-testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-h", "target/ScalaTest-reports/html")
-
-testOptions in Test += Tests.Argument(TestFrameworks.ScalaTest, "-u", "target/ScalaTest-reports/unit")
 
 assemblyJarName in assembly := s"scala-template-assembly-${version.value}.jar"
 
