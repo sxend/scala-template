@@ -5,7 +5,7 @@ name := "scala-template"
 
 version := "0.0.1-SNAPSHOT"
 
-scalaVersion := "2.11.8"
+scalaVersion := "2.12.2"
 
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),
@@ -16,11 +16,10 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaVersion = "2.4.17"
-  val akkaHttpVersion = "10.0.5"
-  val shapelessVersion = "2.3.1"
-  val spec2Version = "3.8.4"
-  val scalaTestVersion = "2.2.6"
+  val akkaVersion = "2.5.2"
+  val akkaHttpVersion = "10.0.6"
+  val shapelessVersion = "2.3.2"
+  val spec2Version = "3.8.9"
   Seq(
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-agent" % akkaVersion,
@@ -29,26 +28,25 @@ libraryDependencies ++= {
     "com.typesafe.akka" %% "akka-cluster-metrics" % akkaVersion,
     "com.typesafe.akka" %% "akka-cluster-sharding" % akkaVersion,
     "com.typesafe.akka" %% "akka-cluster-tools" % akkaVersion,
+    "com.typesafe.akka" %% "akka-multi-node-testkit" % akkaVersion % "test",
     "com.typesafe.akka" %% "akka-contrib" % akkaVersion,
-    "com.typesafe.akka" %% "akka-multi-node-testkit" % akkaVersion,
     "com.typesafe.akka" %% "akka-osgi" % akkaVersion,
     "com.typesafe.akka" %% "akka-persistence" % akkaVersion,
     "com.typesafe.akka" %% "akka-persistence-tck" % akkaVersion,
+    "com.typesafe.akka" %% "akka-persistence-query" % akkaVersion,
     "com.typesafe.akka" %% "akka-remote" % akkaVersion,
     "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-    "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion,
-    "com.typesafe.akka" %% "akka-testkit" % akkaVersion,
-    "com.typesafe.akka" %% "akka-distributed-data-experimental" % akkaVersion,
-    "com.typesafe.akka" %% "akka-typed-experimental" % akkaVersion,
+    "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % "test",
+    "com.typesafe.akka" %% "akka-distributed-data" % akkaVersion,
+    "com.typesafe.akka" %% "akka-typed" % akkaVersion,
+    "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",
     "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion,
     "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
-    "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion,
+    "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion % "test",
     "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
     "com.typesafe.akka" %% "akka-http-jackson" % akkaHttpVersion,
     "com.typesafe.akka" %% "akka-http-xml" % akkaHttpVersion,
-    "com.typesafe.akka" %% "akka-persistence-query-experimental" % akkaVersion,
-    "com.typesafe.akka" %% "akka-typed-experimental" % akkaVersion,
     "com.chuusai" %% "shapeless" % shapelessVersion,
     "org.specs2" %% "specs2-html" % spec2Version % "test",
     "org.specs2" %% "specs2-junit" % spec2Version % "test",
