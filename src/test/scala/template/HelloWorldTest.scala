@@ -1,4 +1,4 @@
-package arimitsu.sf.template
+package template
 
 import org.scalatest._
 
@@ -11,7 +11,7 @@ class HelloWorldTest extends FlatSpec with Matchers {
     helloworld.message should be("Hello, World.")
   }
 
-  trait MockOutPut extends Output {
+  trait MockOutPut extends Print {
     var message = ""
 
     override def print(message: String): Unit = {

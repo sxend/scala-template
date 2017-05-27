@@ -1,4 +1,4 @@
-package arimitsu.sf.template
+package template
 
 import org.specs2.mutable._
 
@@ -16,7 +16,7 @@ class HelloWorldSpec extends Specification {
     }
   }
 
-  trait MockOutPut extends Output {
+  trait MockOutPut extends Print {
     var message = ""
 
     override def print(message: String): Unit = {
