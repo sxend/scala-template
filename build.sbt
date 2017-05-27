@@ -79,6 +79,6 @@ assemblyMergeStrategy in assembly := {
 
 testOptions in Test += Tests.Argument(TestFrameworks.Specs2, "junitxml", "html", "console")
 
-assemblyJarName in assembly := s"scala-template-assembly-${version.value}.jar"
+assemblyJarName in assembly := "main.jar"
 
-mainClass in assembly := Some("arimitsu.sf.template.Bootstrap")
+mainClass in assembly := Some("template.Bootstrap")
