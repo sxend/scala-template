@@ -11,7 +11,7 @@ object Bootstrap {
     implicit val materializer = ActorMaterializer()
     val config = system.settings.config
     Http().bindAndHandleAsync(
-      Route.asyncHandler(Server.routes),
+      Route.asyncHandler(Routes(config)),
       config.getString("template.server.host"),
       config.getInt("template.server.port"),
       parallelism = config.getInt("template.server.parallelism")
