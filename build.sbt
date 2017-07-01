@@ -11,46 +11,28 @@ resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),
   Resolver.sonatypeRepo("snapshots"),
   Resolver.bintrayRepo("sxend", "releases"),
-  Resolver.bintrayRepo("sxend", "snapshots"),
-  "Akka Snapshot Repository" at "http://repo.akka.io/snapshots/"
+  Resolver.bintrayRepo("sxend", "snapshots")
 )
 
 libraryDependencies ++= {
-  val akkaVersion = "2.5.2"
-  val akkaHttpVersion = "10.0.6"
-  val shapelessVersion = "2.3.2"
+  val akkaVersion = "2.5.3"
+  val akkaHttpVersion = "10.0.9"
   val spec2Version = "3.8.9"
   Seq(
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
-    "com.typesafe.akka" %% "akka-agent" % akkaVersion,
-    "com.typesafe.akka" %% "akka-camel" % akkaVersion,
-    "com.typesafe.akka" %% "akka-cluster" % akkaVersion,
-    "com.typesafe.akka" %% "akka-cluster-metrics" % akkaVersion,
-    "com.typesafe.akka" %% "akka-cluster-sharding" % akkaVersion,
-    "com.typesafe.akka" %% "akka-cluster-tools" % akkaVersion,
-    "com.typesafe.akka" %% "akka-multi-node-testkit" % akkaVersion % "test",
-    "com.typesafe.akka" %% "akka-contrib" % akkaVersion,
-    "com.typesafe.akka" %% "akka-osgi" % akkaVersion,
-    "com.typesafe.akka" %% "akka-persistence" % akkaVersion,
-    "com.typesafe.akka" %% "akka-persistence-tck" % akkaVersion,
-    "com.typesafe.akka" %% "akka-persistence-query" % akkaVersion,
-    "com.typesafe.akka" %% "akka-remote" % akkaVersion,
-    "com.typesafe.akka" %% "akka-slf4j" % akkaVersion,
+    "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
     "com.typesafe.akka" %% "akka-stream" % akkaVersion,
-    "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % "test",
-    "com.typesafe.akka" %% "akka-distributed-data" % akkaVersion,
-    "com.typesafe.akka" %% "akka-typed" % akkaVersion,
-    "com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test",
-    "com.typesafe.akka" %% "akka-http-core" % akkaHttpVersion,
+    "com.typesafe.akka" %% "akka-stream-testkit" % akkaVersion % Test,
     "com.typesafe.akka" %% "akka-http" % akkaHttpVersion,
-    "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion % "test",
     "com.typesafe.akka" %% "akka-http-spray-json" % akkaHttpVersion,
-    "com.typesafe.akka" %% "akka-http-jackson" % akkaHttpVersion,
-    "com.typesafe.akka" %% "akka-http-xml" % akkaHttpVersion,
-    "com.chuusai" %% "shapeless" % shapelessVersion,
-    "org.specs2" %% "specs2-html" % spec2Version % "test",
-    "org.specs2" %% "specs2-junit" % spec2Version % "test",
-    "org.specs2" %% "specs2-core" % spec2Version % "test"
+    "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion % Test,
+    "com.typesafe.akka" %% "akka-cluster" % akkaVersion,
+    "com.typesafe.akka" %% "akka-cluster-sharding" %  akkaVersion,
+    "com.typesafe.akka" %% "akka-distributed-data" % akkaVersion,
+    "com.typesafe.akka" %% "akka-persistence" % akkaVersion,
+    "org.specs2" %% "specs2-html" % spec2Version % Test,
+    "org.specs2" %% "specs2-junit" % spec2Version % Test,
+    "org.specs2" %% "specs2-core" % spec2Version % Test
   )
 }
 
