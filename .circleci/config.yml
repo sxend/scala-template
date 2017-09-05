@@ -12,15 +12,15 @@ jobs:
       - run: apt-get -y install gettext-base && mkdir -p /root/.bintray && envsubst < .credentials > /root/.bintray/.credentials
       - restore_cache:
           key: scala-template-libs
-      - run: sbt clean "test:compile"
+      - run: sbt clean "test:compile" exit
       - save_cache:
           key: scala-template-libs
           paths:
             - "/root/.ivy2"
             - "/root/.sbt"
-      - run: sbt test
+      - run: sbt test exit
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              sbt "set version := \"0.0.1-b${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}\"" package assembly publish
+              sbt "set version := \"0.0.1-b${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}\"" package assembly publish exit
             fi
