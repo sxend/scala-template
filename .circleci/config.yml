@@ -7,7 +7,7 @@ jobs:
       - checkout
       - run: cd /tmp && wget https://github.com/jgm/pandoc/releases/download/1.16.0.2/pandoc-1.16.0.2-1-amd64.deb && sudo dpkg -i pandoc-1.16.0.2-1-amd64.deb
       - run: pandoc -v
-      - run: wget -O /tmp/sbt-1.0.1.tgz https://cocl.us/sbt-1.0.1.tgz && cd /bin && tar xzf /tmp/sbt-1.0.1.tgz && ln -s /bin/sbt/bin/sbt /bin/sbt && ls -al /bin/sbt
+      - run: wget -O /tmp/sbt-1.0.1.tgz https://cocl.us/sbt-1.0.1.tgz && cd /opt && tar xzf /tmp/sbt-1.0.1.tgz && ln -s /opt/sbt/bin/sbt /bin/sbt
       - run: apt-get -y install gettext-base && mkdir -p /root/.bintray && envsubst < .credentials > /root/.bintray/.credentials
       - restore_cache:
           key: scala-template-cache
