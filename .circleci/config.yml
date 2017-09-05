@@ -7,9 +7,9 @@ jobs:
       - checkout
       - run: cd /tmp && wget https://github.com/jgm/pandoc/releases/download/1.16.0.2/pandoc-1.16.0.2-1-amd64.deb && sudo dpkg -i pandoc-1.16.0.2-1-amd64.deb
       - run: pandoc -v
-      - run: wget -O ~/bin/sbt-launch.jar https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.11/sbt-launch.jar
-      - run: echo -e '#!/bin/bash\nSBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"\njava $SBT_OPTS -jar `dirname $0`/sbt-launch.jar "$@"' > ~/bin/sbt && chmod u+x ~/bin/sbt
-      - run: mkdir -p ~/.bintray && envsubst < .credentials > ~/.bintray/.credentials
+      - run: mkdir -p /root/bin && wget -O /root/bin/sbt-launch.jar https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.11/sbt-launch.jar
+      - run: echo -e '#!/bin/bash\nSBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"\njava $SBT_OPTS -jar `dirname $0`/sbt-launch.jar "$@"' > /root/bin/sbt && chmod u+x /root/bin/sbt
+      - run: mkdir -p /root/.bintray && envsubst < .credentials > /root/.bintray/.credentials
       - restore_cache:
           key: scala-template-libs
       - run: sbt clean "test:compile"
