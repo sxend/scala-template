@@ -11,10 +11,10 @@ jobs:
       - run: echo -e '#!/bin/bash\nSBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"\njava $SBT_OPTS -jar /root/bin/sbt-launch.jar "$@"' > /bin/sbt && chmod u+x /bin/sbt
       - run: apt-get -y install gettext-base && mkdir -p /root/.bintray && envsubst < .credentials > /root/.bintray/.credentials
       - restore_cache:
-          key: scala-template-libs
+          key: scala-template-cache
       - run: sbt clean "test:compile" exit
       - save_cache:
-          key: scala-template-libs
+          key: scala-template-cache
           paths:
             - "/root/.ivy2"
             - "/root/.sbt"
