@@ -1,0 +1,26 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: sxend/ubuntu:16.04.4
+    steps:
+      - checkout
+      - run: cd /tmp && wget https://github.com/jgm/pandoc/releases/download/1.16.0.2/pandoc-1.16.0.2-1-amd64.deb && sudo dpkg -i pandoc-1.16.0.2-1-amd64.deb
+      - run: pandoc -v
+      - run: mkdir -p /root/bin && wget -O /root/bin/sbt-launch.jar https://repo.typesafe.com/typesafe/ivy-releases/org.scala-sbt/sbt-launch/0.13.11/sbt-launch.jar
+      - run: echo -e '#!/bin/bash\nSBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"\njava $SBT_OPTS -jar /root/bin/sbt-launch.jar "$@"' > /bin/sbt && chmod u+x /bin/sbt
+      - run: apt-get -y install gettext-base && mkdir -p /root/.bintray && envsubst < .credentials > /root/.bintray/.credentials
+      - restore_cache:
+          key: scala-template-cache
+      - run: sbt clean "test:compile" exit
+      - save_cache:
+          key: scala-template-cache
+          paths:
+            - "/root/.ivy2"
+            - "/root/.sbt"
+      - run: sbt test exit
+      - deploy:
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              sbt "set version := \"0.0.1-b${CIRCLE_BUILD_NUM}-${CIRCLE_SHA1}\"" package assembly publish exit
+            fi
