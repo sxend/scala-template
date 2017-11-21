@@ -5,7 +5,7 @@ name := "scala-template"
 
 version := "0.0.1-SNAPSHOT"
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.4"
 
 resolvers ++= Seq(
   Resolver.sonatypeRepo("releases"),
@@ -15,9 +15,9 @@ resolvers ++= Seq(
 )
 
 libraryDependencies ++= {
-  val akkaVersion = "2.5.3"
-  val akkaHttpVersion = "10.0.9"
-  val spec2Version = "3.8.9"
+  val akkaVersion = "2.5.6"
+  val akkaHttpVersion = "10.0.10"
+  val spec2Version = "4.0.0"
   Seq(
     "com.typesafe.akka" %% "akka-actor" % akkaVersion,
     "com.typesafe.akka" %% "akka-testkit" % akkaVersion % Test,
